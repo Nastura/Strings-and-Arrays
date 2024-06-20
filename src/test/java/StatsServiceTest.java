@@ -9,29 +9,29 @@ public class StatsServiceTest {
     @Test                    //// сумма всех продаж за все месяцы.
     public void sumSales() {
         StatsService service = new StatsService();
-        int[] arrs = {3, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18}; // количество продаж по месяцам - 164
+        long[] arrs = {3, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18}; // количество продаж по месяцам - 164
         int expected = 175;
-        int actualMinSales = service.SumSales(arrs);
+        int actualMinSales = service.sumSales(arrs);
         Assertions.assertEquals(expected, actualMinSales);
 
     }
 
     @Test                        //// средняя сумма  продаж за  месяц.
-    public void AverageSales() {
+    public void averageSales() {
         StatsService service = new StatsService();
-        int[] arrs = {3, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18}; // количество продаж по месяцам - 164
+        long[] arrs = {3, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18}; // количество продаж по месяцам - 164
         int expected = 14;
-        int actualMinSales = service.AverageSale(arrs);
+        int actualMinSales = service.averageSale(arrs);
         Assertions.assertEquals(expected, actualMinSales);
 
     }
 
     @Test                      //// месяц пика продаж.
-    public void PeakSales() {
+    public void peakSales() {
         StatsService service = new StatsService();
-        int[] arrs = {3, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18}; // количество продаж по месяцам - 164
+        long[] arrs = {3, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18}; // количество продаж по месяцам - 164
         int expected = 8; // и 6 и 8 месяца пиковые.
-        int actualMinSales = service.PeakSales(arrs);
+        int actualMinSales = service.peakSales(arrs);
         Assertions.assertEquals(expected, actualMinSales);
 
     }
@@ -40,29 +40,29 @@ public class StatsServiceTest {
     @Test                       //// месяц минимального количества продаж.
     public void minSales() {
         StatsService service = new StatsService();
-        int[] arrs = {3, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18}; // количество продаж по месяцам
+        long[] arrs = {3, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18}; // количество продаж по месяцам
         int expected = 1;
-        int actualMinSales = service.MinSales(arrs);
+        int actualMinSales = service.minSales(arrs);
         Assertions.assertEquals(expected, actualMinSales);
 
     }
 
     @Test                          // количество месяцев, в которых продажи были ниже среднего
-    public void BelowTheAverage() {
+    public void belowTheAverage() {
         StatsService service = new StatsService();
-        int[] arrs = {3, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] arrs = {3, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 3;
-        int actualMinSales = service.BelowTheAverage(arrs);
+        int actualMinSales = service.belowTheAverage(arrs);
         Assertions.assertEquals(expected, actualMinSales);
 
     }
 
     @Test                       // количество месяцев, в которых продажи были выше среднего
-    public void AboveAverage() {
+    public void aboveAverage() {
         StatsService service = new StatsService();
-        int[] arrs = {3, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18}; // количество продаж по месяцам
+        long[] arrs = {3, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18}; // количество продаж по месяцам
         int expected = 7;
-        int actualMinSales = service.AboveAverage(arrs);
+        int actualMinSales = service.aboveAverage(arrs);
         Assertions.assertEquals(expected, actualMinSales);
 
     }

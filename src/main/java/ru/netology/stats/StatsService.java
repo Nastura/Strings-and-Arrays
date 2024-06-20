@@ -9,20 +9,20 @@ public class StatsService {
 //    Above average     - количество месяцев, в которых продажи были выше среднего (см. п.2).
 
 
-    public int SumSales(int[] arrs) {  // сумма всех продаж за все месяцы.
+    public int sumSales(long[] arrs) {  // сумма всех продаж за все месяцы.
         int sumSales = 0;
         for (int i = 0; i < arrs.length; i++) {
-            sumSales = sumSales + arrs[i];
+            sumSales = (int) (sumSales + arrs[i]);
         }
         return sumSales;
     }
 
-    public int AverageSale(int[] arrs) {   // средняя сумма продаж
-        int averageSale = SumSales(arrs) / (arrs.length);
+    public int averageSale(long[] arrs) {   // средняя сумма продаж
+        int averageSale = sumSales(arrs) / (arrs.length);
         return averageSale;
     }
 
-    public int PeakSales(int[] arrs) {    // номер месяца высоких продаж
+    public int peakSales(long[] arrs) {    // номер месяца высоких продаж
         int peakSales = 0;
         for (int i = 0; i < arrs.length; i++) {
             if (arrs[i] >= arrs[peakSales]) {
@@ -33,7 +33,7 @@ public class StatsService {
     }
 
 
-    public int MinSales(int[] arrs) {  // номер месяца минимальных продаж
+    public int minSales(long[] arrs) {  // номер месяца минимальных продаж
         int minMonth = 0;
         for (int i = 0; i < arrs.length; i++) {
             if (arrs[i] <= arrs[minMonth]) {
@@ -44,20 +44,22 @@ public class StatsService {
     }
 
 
-    public int BelowTheAverage(int[] arrs) {  // количество месяцев, в которых продажи были ниже среднего
+    public int belowTheAverage(long[] arrs) {  // количество месяцев, в которых продажи были ниже среднего
         int monthsWithMinimalSales = 0;   // Months with minimal sales  Месяцы с минимальными продажами
+        int average = averageSale(arrs);
         for (int i = 0; i < arrs.length; i++) {
-            if (arrs[i] < AverageSale(arrs))
+            if (arrs[i] < average)
                 monthsWithMinimalSales++;
 
         }
         return monthsWithMinimalSales;
     }
 
-    public int AboveAverage(int[] arrs) {  // количество месяцев, в которых продажи были выше среднего
+    public int aboveAverage(long[] arrs) {  // количество месяцев, в которых продажи были выше среднего
         int monthsWithMaxSales = 0;   //High sales months  Месяцы с высокими продажами
+        int average = averageSale(arrs);
         for (int i = 0; i < arrs.length; i++) {
-            if (arrs[i] > AverageSale(arrs))
+            if (arrs[i] > average)
                 monthsWithMaxSales++;
 
         }
