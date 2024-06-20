@@ -11,7 +11,7 @@ public class StatsServiceTest {
         StatsService service = new StatsService();
         long[] arrs = {3, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18}; // количество продаж по месяцам - 164
         int expected = 175;
-        int actualMinSales = service.sumSales(arrs);
+        long actualMinSales = service.sumSales(arrs);
         Assertions.assertEquals(expected, actualMinSales);
 
     }
@@ -21,7 +21,7 @@ public class StatsServiceTest {
         StatsService service = new StatsService();
         long[] arrs = {3, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18}; // количество продаж по месяцам - 164
         int expected = 14;
-        int actualMinSales = service.averageSale(arrs);
+        long actualMinSales = service.averageSale(arrs);
         Assertions.assertEquals(expected, actualMinSales);
 
     }
